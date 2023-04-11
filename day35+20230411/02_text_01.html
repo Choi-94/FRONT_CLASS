@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>계산기</h2>
+    number1: <input type="text" id="num1" name="num1"><br>
+    number2: <input type="text" id="num2" name="num2"><br>
+    계산결과: <input type="text" id="res1" name="res1"><br>
+    <input type="button" value="계산" onclick="fun1()"> <br>
+     
+</body>
+<script>
+    const fun1 = () =>{
+        const input1 = document.getElementById("num1").value;
+        const input2 = document.getElementById("num2").value;
+        const input3 = document.getElementById("res1");
+        const res = parseInt(input1)+parseInt(input2);
+        document.getElementById("res1").value = res;
+    }
+</script>
+</html>
