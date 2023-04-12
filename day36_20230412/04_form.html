@@ -1,39 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <style>
+        #save_form {
+            margin: 0px;
+            width: 600px;
+        }
+        
+    </style>
+
 </head>
+
+   
+    
 <body>
     <!-- onsubmit: form에 작성한 정보를 제출(submit)할 때 호출할 함수 
         return을 작성하여 함수 호출 결과가 true, false인지에 따라 제출을 제어할 수 있음-->
-    <form action="#" name = "loginForm" method="post" onsubmit="return login_check()"><br>
-        email: <input type = "text" name = "memberEmail" id="member-email"><br>
-        password: <input type = "text" name = "memberPassword" id="member-password"><br>
-        <input type="submit" value="login">
-    </form>
+        <div id="save_form" class="container">
+        <form action="#" name="loginForm" method="post" onsubmit="return login_check()"><br>
+            email: <input type="text" name="memberEmail" id="member-email" onblur="email_check()" class="form-control">
+            <h6 id="email-result"></h6>
+            password: <input type="text" name="memberPassword" id="member-password" onblur="password_check()" class="form-control">
+            <h6 id="member_passwordcheck"></h6>
+            <input type="submit" value="login">
+        </form>
+    </div>
+   
 </body>
 <script>
-    const login_check = () =>{
+    const login_check = () => {
         //email, password 중 하나라도 입력되지 않았으면 submit을 하지 않고
         // 입력하지 않은 항목에 focus를 줌
         const email = document.getElementById("member-email");
         const password = document.getElementById("member-password");
-        
+
         // if(email.value.length == 0){ //id로 접근
-        if(document.loginForm.memberEmail.value.length == 0){ //name으로 접근
+        if (!email_check()) { //name으로 접근
             //email입력에  focus
             email.focus();
             return false;
-        }else if(password.value.length == 0 ){
+        } else if (!password_check()) {
             password.focus();
             return false;
-        }else{
+        } else {
             return true;
         }
-        
+    }
+
+    email_check = () => {
+        const email1 = document.getElementById("member-email").value;
+        const emailResult = document.getElementById("email-result")
+        if (email1.length == 0) {
+            document.getElementById("email-result").innerText = "필수사항 입니다";
+            document.getElementById("email-result").style.color = "red";
+            return false;
+        } else if (email1.length < 5 || email1.length > 20) {
+            document.getElementById("email-result").innerText = "5~20자로 입력해주세요";
+            document.getElementById("email-result").style.color = "red";
+            return false;
+        } else {
+            document.getElementById("email-result").innerText = "좋아요";
+            document.getElementById("email-result").style.color = "green";
+            return true;
+        }
+    }
+    password_check = () => {
+        const password = document.getElementById("member-password").value;
+        if (password.length == 0) {
+            document.getElementById("member_passwordcheck").innerText = "필수사항 입니다";
+            document.getElementById("member_passwordcheck").style.color = "red";
+            return false;
+        } else if (password.length < 3 || password.length > 18) {
+            document.getElementById("member_passwordcheck").innerText = "3~18자리 패스워드를 입력해주세요";
+            document.getElementById("member_passwordcheck").style.color = "red";
+            return false;
+        } else {
+            document.getElementById("member_passwordcheck").innerText = "좋아요";
+            document.getElementById("member_passwordcheck").style.color = "green";
+            return true;
+        }
     }
 </script>
+
 </html>
