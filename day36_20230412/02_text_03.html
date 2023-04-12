@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <script src="../js/bootstrap.bundle.min.js"></script>
+  
+    <style>
+        #save_form {
+            margin: 0px;
+            width: 600px;
+        }
+        
+    </style>
+</head>
+    
+<body>
+    <div id="save_form" class="container">
+        <h6>이메일</h6>
+        <input type="text" id="email" onblur="email()" class="form-control">
+        <h6 id=emailp></h6>
+    </div>
+</body>
+<script>
+    email = () => {
+        const email1 = document.getElementById("email").value;
+        if (email1.length == 0) {
+            document.getElementById("emailp").innerText = "필수사항 입니다";
+            document.getElementById("emailp").style.color = "red";
+        } else if (email1.length < 5 || email1.length > 20) {
+            document.getElementById("emailp").innerText = "5~20자로 입력해주세요";
+            document.getElementById("emailp").style.color = "red";
+        } else {
+            document.getElementById("emailp").innerText = "좋아요";
+            document.getElementById("emailp").style.color = "green";
+        }
+    }
+    /* const email1 = document.getElementById("email").value;
+        const emailResult = document.getElementById("email-result);
+        if(email.length == 0){
+            emailResult.innerHTML = "필수입력입니다."*/
+</script>
+
+</html>

@@ -25,7 +25,7 @@
         const html = document.getElementById("html1").value;
         const res = document.getElementById("res1");
         const res2 = document.getElementById("res2");
-        const sum = parseInt(parseInt(java)/2+parseInt(html)/2);
+        const sum = parseInt((parseInt(java)+parseInt(html))/2);
         if(sum>=90){
             grade = "A";
         }else if(sum>=80){
@@ -39,6 +39,7 @@
         }
         document.getElementById("res1").value= grade ;
         res2.innerHTML = grade;
+        // document.getElementById("grade").innerHTML = "당신의 학점은" + grade + "입니다";
     }
 </script>
 </html>

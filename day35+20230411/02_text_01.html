@@ -11,7 +11,9 @@
     number1: <input type="text" id="num1" name="num1"><br>
     number2: <input type="text" id="num2" name="num2"><br>
     계산결과: <input type="text" id="res1" name="res1"><br>
-    <input type="button" value="계산" onclick="fun1()"> <br>
+    <input type="button" value="계산" onclick="fun1()"> <br> 
+    
+
      
 </body>
 <script>
@@ -21,6 +23,7 @@
         const input3 = document.getElementById("res1");
         const res = parseInt(input1)+parseInt(input2);
         document.getElementById("res1").value = res;
+        //res1.value = res;
     }
 </script>
 </html>
