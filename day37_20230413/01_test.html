@@ -12,9 +12,13 @@
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/headers/">
     <style>
+        #a1{
+            text-align: center;
+        }
         #save_form {
             margin: 0px;
             width: 600px;
+            text-align: left;
         }
         #member_phoneselect{
             width: 60px;
@@ -60,7 +64,7 @@
 
 <body>
     <div id="save_form" class="container">
-        <h4>회원 가입</h4>
+        <h4 id="a1">회원 가입</h4>
         <h6>아이디</h6>
         <input type="text" id="member_id" class="form-control" onblur="member_id()">
         <h6 id="member_idp"></h6><br>
